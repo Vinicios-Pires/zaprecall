@@ -1,0 +1,84 @@
+/* FONTE */
+/* font-family: 'Roboto', sans-serif; */
+
+* {
+  box-sizing: border-box;
+  background-color: #fb6b6b;
+  font-family: "Roboto", sans-serif;
+}
+
+.tela-inicial {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  gap: 82px;
+}
+
+.tela-inicial div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 55px;
+  height: 65px;
+}
+
+.zaprecall-tela-inicial {
+  display: flex;
+  width: 152px;
+  height: 35px;
+  font-weight: 700;
+  font-size: 25px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.btn-tela-inicial {
+  width: 141px;
+  height: 31px;
+  background: #ffffff;
+  border: 1px solid #d70900;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+}
+.btn-tela-inicial:hover {
+  cursor: pointer;
+}
+
+.txt-btn {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  width: 116px;
+  height: 13px;
+  font-size: 16px;
+  color: #d70900;
+}
+
+.escondido {
+  display: none;
+}
+
+/* TELA PERGUNTAS */
+.tela-perguntas {
+  width: 100vw;
+}
+
+.tela-perguntas .topo-tela-perguntas {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100vw;
+  height: 150px;
+}
