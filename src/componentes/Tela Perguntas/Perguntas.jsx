@@ -50,10 +50,25 @@ function Pergunta({ questao, pergunta, resposta }) {
     setSelecionada(true);
   }
 
-  const [perguntaSelecionada, setPerguntaSelecionada] = useState(false);
+  const [exibirResposta, setExibirResposta] = useState(false);
   function AparecerResposta() {
-    setPerguntaSelecionada(true);
+    setExibirResposta(true);
   }
+
+  const [resultado, setResultado] = useState("");
+  function NaoLembrei() {
+    setResultado("n-lembrei");
+  }
+
+  function QuaseLembrei() {
+    setResultado("quase-n-lembrei");
+  }
+
+  function Zap() {
+    setResultado("zap");
+  }
+
+  const cssPergunta = `pergunta ${resultado}`;
 
   return !selecionada ? (
     <div className="pergunta">
@@ -64,7 +79,7 @@ function Pergunta({ questao, pergunta, resposta }) {
         name="play-outline"
       ></ion-icon>
     </div>
-  ) : !perguntaSelecionada ? (
+  ) : !exibirResposta ? (
     <div className="pergunta estender-colorir">
       {pergunta}
       <img
@@ -74,14 +89,47 @@ function Pergunta({ questao, pergunta, resposta }) {
         alt="setinha"
       />
     </div>
-  ) : (
+  ) : resultado === "" ? (
     <div className="resposta-revelada estender-colorir">
       {resposta}
-      {/* <div className="botoes">
-        <button className="nao-lembrei">Não lembrei</button>
-        <button className="quase-nao-lembrei">Quase não lembrei</button>
-        <button className="lembrei">Zap!</button>
-      </div> */}
+      <div className="botoes">
+        <button onClick={NaoLembrei} className="nao-lembrei">
+          Não lembrei
+        </button>
+        <button onClick={QuaseLembrei} className="quase-nao-lembrei">
+          Quase não lembrei
+        </button>
+        <button onClick={Zap} className="lembrei">
+          Zap!
+        </button>
+      </div>
+    </div>
+  ) : resultado === "n-lembrei" ? (
+    <div className={cssPergunta}>
+      {questao}{" "}
+      <img
+        className="resultado-img"
+        src="assets/nao-lembro.svg"
+        alt="Nao lembro"
+      />
+    </div>
+  ) : resultado === "quase-n-lembrei" ? (
+    <div className={cssPergunta}>
+      {questao}{" "}
+      <img
+        className="resultado-img"
+        src="assets/quase-nao-lembrei.svg"
+        alt="Interrogacao"
+      />
+    </div>
+  ) : (
+    <div className={cssPergunta}>
+      {questao}{" "}
+      <img
+        className="resultado-img"
+        src="assets/ZAP.svg"
+        alt="Correto"
+      />
     </div>
   );
 }
