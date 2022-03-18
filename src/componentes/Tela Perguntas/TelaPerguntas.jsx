@@ -1,9 +1,11 @@
 import TopoTelaPerguntas from "./TopoTelaPerguntas";
+import Perguntas from "./Perguntas";
 
 function TelaPerguntas() {
   return (
-    <div class="tela-perguntas escondido">
+    <div className="tela-perguntas">
       <TopoTelaPerguntas />
+      <Perguntas />
     </div>
   );
 }
