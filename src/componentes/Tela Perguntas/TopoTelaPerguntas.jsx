@@ -1,4 +1,5 @@
 import { TxtH1 } from "./style";
+import LogoPequeno from "../../assets/logo-pequeno.png";
 
 function TopoTelaPerguntas() {
   return (
@@ -6,8 +7,8 @@ function TopoTelaPerguntas() {
       <div className="topo-tela-perguntas">
         <img
           className="logo-perguntas"
-          src="assets/logo-pequeno.png"
-          alt="Logo Zap Recall"
+          src={LogoPequeno}
+          alt="Logo pequeno ZapRecall"
         />
         <TxtH1>ZapRecall</TxtH1>
       </div>

@@ -1,4 +1,10 @@
 import { useState } from "react";
+import Setinha from "../../assets/setinha.png";
+import NaoLembro from "../../assets/nao-lembro.svg";
+import QuaseNaoLembrei from "../../assets/quase-nao-lembrei.svg";
+import ZAP from "../../assets/ZAP.svg";
+import triste from "../../assets/sad.png";
+import feliz from "../../assets/party.png";
 
 const perguntas = [
   {
@@ -44,8 +50,19 @@ const perguntas = [
   },
 ];
 
-function Pergunta({ questao, pergunta, resposta, setTotal, total }) {
-  console.log(total);
+// perguntas.sort(() => Math.random() - 0.5); USAR DEPOIS
+
+function Pergunta({
+  questao,
+  pergunta,
+  resposta,
+  setTotal,
+  total,
+  respostas,
+  setRespostas,
+  // icone,
+  // setIcone
+}) {
   const [selecionada, setSelecionada] = useState(false);
   function AparecerPergunta() {
     setSelecionada(true);
@@ -56,20 +73,25 @@ function Pergunta({ questao, pergunta, resposta, setTotal, total }) {
     setExibirResposta(true);
   }
 
+  // ETAPA DOS BOTOES
   const [resultado, setResultado] = useState("");
   function NaoLembrei() {
     setResultado("n-lembrei");
     setTotal(total + 1);
+    setRespostas([...respostas, "nao-lembrei"]);
+    // setIcone(...icone , <img src={NaoLembro} alt={NaoLembro}/>)
   }
 
   function QuaseLembrei() {
     setResultado("quase-n-lembrei");
     setTotal(total + 1);
+    setRespostas([...respostas, "quase-n-lembrei"]);
   }
 
   function Zap() {
     setResultado("zap");
     setTotal(total + 1);
+    setRespostas([...respostas, "zap"]);
   }
 
   const cssPergunta = `pergunta ${resultado}`;
@@ -89,7 +111,7 @@ function Pergunta({ questao, pergunta, resposta, setTotal, total }) {
       <img
         onClick={AparecerResposta}
         className="setinha"
-        src="assets/setinha.png"
+        src={Setinha}
         alt="setinha"
       />
     </div>
@@ -111,31 +133,24 @@ function Pergunta({ questao, pergunta, resposta, setTotal, total }) {
   ) : resultado === "n-lembrei" ? (
     <div className={cssPergunta}>
       {questao}{" "}
-      <img
-        className="resultado-img"
-        src="assets/nao-lembro.svg"
-        alt="Nao lembro"
-      />
+      <img className="resultado-img" src={NaoLembro} alt="Nao lembro" />
     </div>
   ) : resultado === "quase-n-lembrei" ? (
     <div className={cssPergunta}>
       {questao}{" "}
-      <img
-        className="resultado-img"
-        src="assets/quase-nao-lembrei.svg"
-        alt="Interrogacao"
-      />
+      <img className="resultado-img" src={QuaseNaoLembrei} alt="Interrogacao" />
     </div>
   ) : (
     <div className={cssPergunta}>
-      {questao}{" "}
-      <img className="resultado-img" src="assets/ZAP.svg" alt="Correto" />
+      {questao} <img className="resultado-img" src={ZAP} alt="Correto" />
     </div>
   );
 }
 
 function Perguntas() {
   const [total, setTotal] = useState(0);
+  const [respostas, setRespostas] = useState([]);
+  // const [icone, setIcone] = useState([]);
   return (
     <>
       <div className="Perguntas">
@@ -147,21 +162,72 @@ function Perguntas() {
             resposta={resposta}
             setTotal={setTotal}
             total={total}
+            respostas={respostas}
+            setRespostas={setRespostas}
+            // icone={icone}
+            // setIcone={setIcone}
           />
         ))}
       </div>
-      <Concluidos total={total} />
+      <Concluidos total={total} respostas={respostas} />
     </>
   );
 }
 
 function Concluidos(props) {
-  const { total } = props;
-  return (
-    <div className="concluido">
-      <p>{total}/8 CONCLUIDOS</p>
-    </div>
-  );
+  const { total, respostas } = props;
+  const NumeroQuestoes = 8;
+  const armazemRespostas = [];
+
+  if (total !== NumeroQuestoes) {
+    return (
+      <div className="concluido">
+        <p>
+          {total}/{NumeroQuestoes} CONCLUIDOS
+        </p>
+      </div>
+    );
+  } else {
+    for (let i = 0; i < respostas.length; i++) {
+      let resp = respostas[i];
+      armazemRespostas.push(resp);
+    }
+    for (let i = 0; i < armazemRespostas.length; i++) {
+      if (armazemRespostas.includes("nao-lembrei") === true) {
+        return (
+          <div className="msg-final">
+            <p>
+              <img src={triste} alt="Carinha triste" /> Putz...
+            </p>
+            <p>Ainda faltam alguns... Mas não desanime!</p>
+            <p>
+              {total}/{NumeroQuestoes} CONCLUIDOS
+            </p>
+          </div>
+        );
+      } else {
+        return (
+          <div className="msg-final">
+            <p>
+              <img src={feliz} alt="Carinha feliz" /> Parabéns!
+            </p>
+            <p>Você não esqueceu de nenhum flashcard!</p>
+            <p>
+              {total}/{NumeroQuestoes} CONCLUIDOS
+            </p>
+          </div>
+        );
+      }
+    }
+  }
+
+  // return (
+  //   <div className="concluido">
+  //     <p>
+  //       {total}/{NumeroQuestoes} CONCLUIDOS
+  //     </p>
+  //   </div>
+  // );
 }
 
 export default Perguntas;

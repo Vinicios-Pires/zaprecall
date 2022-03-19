@@ -1,10 +1,11 @@
 import { TextoLogo, Btn, TxtBtn } from "./style";
+import Logo from "../../assets/logo.png";
 
-function TelaInicial({fn}) {
+function TelaInicial({ fn }) {
   return (
     <div className="tela-inicial">
       <div>
-        <img src="assets/logo.png" alt="Logo Zap Recall" />
+        <img src={Logo} alt="Logo Zap Recall" />
         <TextoLogo>ZapRecall</TextoLogo>
       </div>
       <Btn onClick={fn}>

@@ -162,6 +162,7 @@
 
 .concluido {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: fixed;
@@ -175,4 +176,26 @@
   background-color: #ffffff;
   font-size: 24px;
   color: #333333;
+}
+
+.msg-final {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0px;
+  width: 100vw;
+  height: 80px;
+  background-color: #ffffff;
+}
+
+.msg-final p{
+  background-color: #ffffff;
+  font-size: 24px;
+  color: #333333;
+}
+
+.msg-final img {
+  background-color: #ffffff;
 }
