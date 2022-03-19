@@ -183,7 +183,7 @@ function Concluidos(props) {
     return (
       <div className="concluido">
         <p>
-          {total}/{NumeroQuestoes} CONCLUIDOS
+          {total}/{NumeroQuestoes} CONCLUÍDOS
         </p>
       </div>
     );
@@ -197,11 +197,11 @@ function Concluidos(props) {
         return (
           <div className="msg-final">
             <p>
-              <img src={triste} alt="Carinha triste" /> Putz...
+              <img src={triste} alt="Carinha triste" /> <b>Putz...</b>
             </p>
-            <p>Ainda faltam alguns... Mas não desanime!</p>
+            <p className="txt-final">Ainda faltam alguns... Mas não desanime!</p>
             <p>
-              {total}/{NumeroQuestoes} CONCLUIDOS
+              {total}/{NumeroQuestoes} CONCLUÍDOS
             </p>
           </div>
         );
@@ -209,11 +209,11 @@ function Concluidos(props) {
         return (
           <div className="msg-final">
             <p>
-              <img src={feliz} alt="Carinha feliz" /> Parabéns!
+              <img src={feliz} alt="Carinha feliz" /> <b>Parabéns!</b>
             </p>
-            <p>Você não esqueceu de nenhum flashcard!</p>
+            <p className="txt-final">Você não esqueceu de nenhum flashcard!</p>
             <p>
-              {total}/{NumeroQuestoes} CONCLUIDOS
+              {total}/{NumeroQuestoes} CONCLUÍDOS
             </p>
           </div>
         );

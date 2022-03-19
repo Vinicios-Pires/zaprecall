@@ -1,20 +1,22 @@
 import styled from "styled-components";
 
 export const TextoLogo = styled.h1`
+  font-family: "Righteous", cursive;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 45px;
   display: flex;
-  width: 152px;
-  height: 35px;
-  font-weight: 700;
-  font-size: 25px;
-  text-align: center;
   align-items: center;
-  justify-content: center;
+  text-align: center;
+  letter-spacing: -0.012em;
   color: #ffffff;
+  margin-top: 13px;
 `;
 
 export const Btn = styled.button`
-  width: 141px;
-  height: 31px;
+  width: 246px;
+  height: 54px;
   background: #ffffff;
   border: 1px solid #d70900;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
@@ -22,14 +24,16 @@ export const Btn = styled.button`
 `;
 
 export const TxtBtn = styled.p`
+  font-family: "Recursive", sans-serif;
   display: flex;
-  text-align: center;
-  align-items: center;
   justify-content: center;
-  background: #ffffff;
-  width: 116px;
-  height: 13px;
-  font-size: 16px;
-  color: #d70900;
+  align-items: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #D70900;
+  background-color: white;
   cursor: pointer;
 `;
