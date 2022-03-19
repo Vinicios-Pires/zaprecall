@@ -44,7 +44,8 @@ const perguntas = [
   },
 ];
 
-function Pergunta({ questao, pergunta, resposta }) {
+function Pergunta({ questao, pergunta, resposta, setTotal, total }) {
+  console.log(total);
   const [selecionada, setSelecionada] = useState(false);
   function AparecerPergunta() {
     setSelecionada(true);
@@ -58,14 +59,17 @@ function Pergunta({ questao, pergunta, resposta }) {
   const [resultado, setResultado] = useState("");
   function NaoLembrei() {
     setResultado("n-lembrei");
+    setTotal(total + 1);
   }
 
   function QuaseLembrei() {
     setResultado("quase-n-lembrei");
+    setTotal(total + 1);
   }
 
   function Zap() {
     setResultado("zap");
+    setTotal(total + 1);
   }
 
   const cssPergunta = `pergunta ${resultado}`;
@@ -125,20 +129,7 @@ function Pergunta({ questao, pergunta, resposta }) {
   ) : (
     <div className={cssPergunta}>
       {questao}{" "}
-      <img
-        className="resultado-img"
-        src="assets/ZAP.svg"
-        alt="Correto"
-      />
-    </div>
-  );
-}
-
-function Concluidos(props) {
-  const { total } = props;
-  return (
-    <div className="concluido">
-      <p>{total}/8 CONCLUIDOS</p>
+      <img className="resultado-img" src="assets/ZAP.svg" alt="Correto" />
     </div>
   );
 }
@@ -149,11 +140,27 @@ function Perguntas() {
     <>
       <div className="Perguntas">
         {perguntas.map(({ questao, pergunta, resposta }) => (
-          <Pergunta questao={questao} pergunta={pergunta} resposta={resposta} />
+          <Pergunta
+            key={questao}
+            questao={questao}
+            pergunta={pergunta}
+            resposta={resposta}
+            setTotal={setTotal}
+            total={total}
+          />
         ))}
       </div>
       <Concluidos total={total} />
     </>
+  );
+}
+
+function Concluidos(props) {
+  const { total } = props;
+  return (
+    <div className="concluido">
+      <p>{total}/8 CONCLUIDOS</p>
+    </div>
   );
 }
 
