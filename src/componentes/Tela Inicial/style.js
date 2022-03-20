@@ -14,7 +14,7 @@ export const TextoLogo = styled.h1`
   margin-top: 13px;
 `;
 
-export const Btn = styled.button`
+export const Botao = styled.button`
   width: 246px;
   height: 54px;
   background: #ffffff;
@@ -23,7 +23,7 @@ export const Btn = styled.button`
   border-radius: 5px;
 `;
 
-export const TxtBtn = styled.p`
+export const TextoBotao = styled.p`
   font-family: "Recursive", sans-serif;
   display: flex;
   justify-content: center;
@@ -33,7 +33,7 @@ export const TxtBtn = styled.p`
   font-size: 18px;
   line-height: 22px;
   text-align: center;
-  color: #D70900;
+  color: #d70900;
   background-color: white;
   cursor: pointer;
 `;

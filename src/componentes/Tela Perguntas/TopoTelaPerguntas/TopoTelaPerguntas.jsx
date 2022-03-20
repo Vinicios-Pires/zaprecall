@@ -1,5 +1,5 @@
-import { TxtH1 } from "./style";
-import LogoPequeno from "../../assets/logo-pequeno.png";
+import { TextoH1 } from "./style";
+import LogoPequeno from "../../../assets/logo-pequeno.png";
 
 function TopoTelaPerguntas() {
   return (
@@ -10,7 +10,7 @@ function TopoTelaPerguntas() {
           src={LogoPequeno}
           alt="Logo pequeno ZapRecall"
         />
-        <TxtH1>ZapRecall</TxtH1>
+        <TextoH1>ZapRecall</TextoH1>
       </div>
     </>
   );

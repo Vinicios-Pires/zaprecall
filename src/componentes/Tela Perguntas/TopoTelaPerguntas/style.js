@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const TxtH1 = styled.h1`
+export const TextoH1 = styled.h1`
   width: 203.17px;
   height: 44px;
   font-family: "Righteous", cursive;

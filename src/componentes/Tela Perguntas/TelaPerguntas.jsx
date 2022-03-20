@@ -1,5 +1,5 @@
-import TopoTelaPerguntas from "./TopoTelaPerguntas";
-import Perguntas from "./Perguntas";
+import TopoTelaPerguntas from "./TopoTelaPerguntas/TopoTelaPerguntas";
+import Perguntas from "./Perguntas/Perguntas";
 
 function TelaPerguntas() {
   return (

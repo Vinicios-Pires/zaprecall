@@ -1,4 +1,4 @@
-import { TextoLogo, Btn, TxtBtn } from "./style";
+import { TextoLogo, Botao, TextoBotao } from "./style";
 import Logo from "../../assets/logo.png";
 
 function TelaInicial({ fn }) {
@@ -8,9 +8,9 @@ function TelaInicial({ fn }) {
         <img src={Logo} alt="Logo Zap Recall" />
         <TextoLogo>ZapRecall</TextoLogo>
       </div>
-      <Btn onClick={fn}>
-        <TxtBtn>Iniciar Recall!</TxtBtn>
-      </Btn>
+      <Botao onClick={fn}>
+        <TextoBotao>Iniciar Recall!</TextoBotao>
+      </Botao>
     </div>
   );
 }
