@@ -26,7 +26,7 @@ function Concluidos(props) {
             <p>
               <img src={triste} alt="Carinha triste" /> <b>Putz...</b>
             </p>
-            <p className="txt-final">
+            <p>
               Ainda faltam alguns... Mas não desanime!
             </p>
             <p>
